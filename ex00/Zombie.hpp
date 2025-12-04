@@ -4,24 +4,24 @@
 #include <string>
 #include <iostream>
 
-class Zombie 
+class Zombie
 {
 private:
-    std::string name;
+    std::string m_name;
 
 public:
     // Constructor
     Zombie(std::string name);
-    
+
     // Destructor
     ~Zombie();
-    
+
     // Member function
     void announce(void);
 };
 
 // Function prototypes
-Zombie* newZombie(std::string name);
+Zombie *newZombie(std::string name);
 void randomChump(std::string name);
 
 #endif
