@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mesasaki <mesasaki@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/10 19:06:11 by mesasaki          #+#    #+#             */
+/*   Updated: 2025/12/10 19:06:12 by mesasaki         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Zombie.hpp"
 
 int main()
@@ -6,11 +18,11 @@ int main()
     std::string name = "Horde Member";
 
     std::cout << "Creating a horde of " << N << " zombies named '" << name << "'..." << std::endl;
-    
+
     // Create zombie horde
     Zombie *horde = zombieHorde(N, name);
-    
-    if (horde == NULL)
+
+    if (horde == NULL) // エラー処理
     {
         std::cout << "Failed to create zombie horde." << std::endl;
         return 1;
@@ -20,7 +32,7 @@ int main()
     std::cout << "\nZombie announcements:" << std::endl;
     for (int i = 0; i < N; i++)
     {
-        std::cout << "Zombie " << i + 1 << ": ";
+        std::cout << "Zombie " << i + 1 << ": "; // Zombie 1:
         horde[i].announce();
     }
 

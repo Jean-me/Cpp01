@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mesasaki <mesasaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/10 19:07:46 by mesasaki          #+#    #+#             */
-/*   Updated: 2025/12/10 19:07:46 by mesasaki         ###   ########.fr       */
+/*   Created: 2025/12/10 19:05:21 by mesasaki          #+#    #+#             */
+/*   Updated: 2025/12/10 19:05:21 by mesasaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#ifndef HUMANB_HPP
+#define HUMANB_HPP
 
 #include <string>
-#include <iostream>
+#include "Weapon.hpp"
 
-class Zombie
+class HumanB
 {
 private:
-    std::string m_name;
+    std::string name;
+    Weapon* weapon;  // ポインタ（武器を持たない場合もある）、HumanAとの違い
 
 public:
-    // Constructor
-    Zombie(std::string name);
-
-    // Destructor
-    ~Zombie();
-
-    // Member function
-    void announce(void);
+    HumanB(std::string name);//武器なしで作成可能
+    ~HumanB();
+    
+    void setWeapon(Weapon& weapon);//setWeapon()で後から武器を設定
+    void attack(void) const;
 };
-
-// Function prototypes
-Zombie *newZombie(std::string name);
-void randomChump(std::string name);
 
 #endif
