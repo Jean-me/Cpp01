@@ -13,7 +13,7 @@
 #include "HumanB.hpp"
 #include <iostream>
 
-HumanB::HumanB(std::string name) : name(name), weapon(NULL)
+HumanB::HumanB(std::string name) : name(name)
 {
 }
 
@@ -21,12 +21,12 @@ HumanB::~HumanB()
 {
 }
 
-void HumanB::setWeapon(Weapon& weapon)//HumanAとの違い
+void HumanB::setWeapon(Weapon &weapon) // HumanAとの違い
 {
     this->weapon = &weapon;
 }
 
-void HumanB::attack(void) const
+void HumanB::attack(void)
 {
     if (this->weapon == NULL)
         std::cout << this->name << " has no weapon" << std::endl;
