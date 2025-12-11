@@ -20,21 +20,20 @@ int main()
 {
     {
         Weapon club = Weapon("a completely plain golf ball");
-        HumanA bob("Bob", club);//std::string name, Weapon& weapon
-        bob.attack();//<name> attacks with their <weapon type>
+        HumanA bob("Bob", club); // std::string name, Weapon& weapon
+        bob.attack();            //<name> attacks with their <weapon type>
         club.setType("an ordinary weed killer");
         bob.attack();
     }
     {
         Weapon club = Weapon("a completely plain golf ball");
         HumanB jim("Jim");
+        jim.attack(); // Jim has no weapon
         jim.setWeapon(club);
-        jim.attack();//Opt: Jim has no weapon
+        jim.attack();
         club.setType("an ordinary weed killer");
         jim.attack();
     }
 
     return 0;
 }
-
-//・HumanBは常に武器を持っているとは限らないが、HumanAは常に武装している。
