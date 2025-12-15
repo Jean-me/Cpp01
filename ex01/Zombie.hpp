@@ -6,7 +6,7 @@
 /*   By: mesasaki <mesasaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 19:06:29 by mesasaki          #+#    #+#             */
-/*   Updated: 2025/12/10 19:06:31 by mesasaki         ###   ########.fr       */
+/*   Updated: 2025/12/14 01:55:33 by mesasaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,17 @@ private:
 public:
     // Constructors
     Zombie();                 // Default constructor
-    Zombie(std::string name); // Parameterized constructor
+    Zombie(const std::string& name); // Parameterized constructor
 
     // Destructor
     ~Zombie();
 
     // Member functions
-    void announce(void);
-    void setName(std::string name);
+    void announce(void) const;
+    void setName(const std::string& name);
 };
 
 // Function prototype
-Zombie *zombieHorde(int N, std::string name);
+Zombie *zombieHorde(int N, const std::string& name);
 
 #endif

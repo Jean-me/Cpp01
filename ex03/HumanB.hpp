@@ -23,11 +23,11 @@ private:
     Weapon *weapon; // ポインタ（武器を持たない場合もある）、HumanAとの違い
 
 public:
-    HumanB(std::string name); // 武器なしで作成可能（Weaponは任意）
+    HumanB(const std::string& name); // 武器なしで作成可能（Weaponは任意）
     ~HumanB();
 
     void setWeapon(Weapon &weapon); // setWeapon()で後から武器を設定
-    void attack(void);
+    void attack(void) const;
 };
 
 #endif

@@ -12,7 +12,7 @@
 
 #include "Zombie.hpp"
 
-Zombie* newZombie(std::string name)
+Zombie* newZombie(const std::string& name)// const参照渡し - コピーなし、変更不可（速い、安全）
 {
     Zombie* zombie = new Zombie(name);
     return zombie;

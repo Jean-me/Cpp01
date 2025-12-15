@@ -13,9 +13,8 @@
 #include "Zombie.hpp"
 
 // Constructor
-Zombie::Zombie(std::string name)
+Zombie::Zombie(const std::string& name) : m_name(name)
 {
-    m_name = name;
 }
 
 // Destructor
@@ -25,7 +24,7 @@ Zombie::~Zombie()
 }
 
 // Member function
-void Zombie::announce(void)
+void Zombie::announce(void) const
 {
     std::cout << m_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

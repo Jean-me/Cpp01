@@ -24,10 +24,10 @@ private:
     Weapon &weapon; // 参照（常に武器を持つ）参照を使わないと、mainの2回目のattack()で古い武器が表示されてしまいます！
 
 public:
-    HumanA(std::string name, Weapon &weapon); // 武器が必須、コンストラクタのみ
+    HumanA(const std::string& name, Weapon& weapon); // 武器が必須、コンストラクタのみ
     ~HumanA();
 
-    void attack(void);
+    void attack(void) const;
 };
 
 #endif

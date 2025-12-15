@@ -6,13 +6,13 @@
 /*   By: mesasaki <mesasaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 19:06:43 by mesasaki          #+#    #+#             */
-/*   Updated: 2025/12/10 19:06:44 by mesasaki         ###   ########.fr       */
+/*   Updated: 2025/12/14 01:56:36 by mesasaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie *zombieHorde(int N, std::string name)
+Zombie *zombieHorde(int N, const std::string& name)
 {
     if (N <= 0)
         return NULL;

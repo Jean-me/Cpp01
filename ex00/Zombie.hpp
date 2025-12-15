@@ -23,17 +23,17 @@ private:
 
 public:
     // Constructor
-    Zombie(std::string name);
+    Zombie(const std::string& name);
 
     // Destructor
     ~Zombie();
 
     // Member function
-    void announce(void);
+    void announce(void) const;
 };
 
 // Function prototypes
-Zombie *newZombie(std::string name);
-void randomChump(std::string name);
+Zombie *newZombie(const std::string& name);
+void randomChump(const std::string& name);
 
 #endif

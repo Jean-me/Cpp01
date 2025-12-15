@@ -6,22 +6,20 @@
 /*   By: mesasaki <mesasaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 19:06:20 by mesasaki          #+#    #+#             */
-/*   Updated: 2025/12/10 19:06:21 by mesasaki         ###   ########.fr       */
+/*   Updated: 2025/12/14 01:54:23 by mesasaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 // Default constructor
-Zombie::Zombie()
+Zombie::Zombie() : m_name("")
 {
-    m_name = "";
 }
 
 // Parameterized constructor
-Zombie::Zombie(std::string name)
+Zombie::Zombie(const std::string& name) : m_name(name)
 {
-    m_name = name;
 }
 
 // Destructor
@@ -31,13 +29,13 @@ Zombie::~Zombie()
 }
 
 // Member function
-void Zombie::announce(void)
+void Zombie::announce(void) const
 {
     std::cout << m_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
 // Set name function
-void Zombie::setName(std::string name)
+void Zombie::setName(const std::string& name)
 {
     m_name = name;
 }

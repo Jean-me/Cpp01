@@ -21,11 +21,11 @@ private:
     std::string type;
 
 public:
-    Weapon(std::string str_type);
+    Weapon(const std::string& str_type);
     ~Weapon();
     
-    std::string getType(void) const;
-    void setType(std::string newType);
+    const std::string& getType(void) const;
+    void setType(const std::string& newType);
 };
 
 #endif

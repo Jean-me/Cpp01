@@ -12,7 +12,7 @@
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon &weapon) : name(name), weapon(weapon) // 参照は初期化リストでしか初期化できない
+HumanA::HumanA(const std::string& name, Weapon& weapon) : name(name), weapon(weapon) // 参照は初期化リストでしか初期化できない
 {
 }
 
@@ -20,7 +20,7 @@ HumanA::~HumanA()
 {
 }
 
-void HumanA::attack(void)
+void HumanA::attack(void) const
 {
     std::cout << this->name << " attacks with their " << this->weapon.getType() << std::endl;
 }
