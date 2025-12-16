@@ -1,6 +1,6 @@
 # Sed is for losers
 NAME = ex04
-SRCS = main.cpp
+SRCS = main.cpp FileReplacer.cpp
 OBJS = $(SRCS:.cpp=.o)
 # Compiler
 CXX = c++

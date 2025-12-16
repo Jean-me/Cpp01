@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FileReplacer.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mesasaki <mesasaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/14 18:34:10 by mesasaki          #+#    #+#             */
-/*   Updated: 2025/12/14 18:34:10 by mesasaki         ###   ########.fr       */
+/*   Created: 2025/12/17 02:01:39 by mesasaki          #+#    #+#             */
+/*   Updated: 2025/12/17 02:01:39 by mesasaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FileReplacer.hpp"
-#include <iostream>
+#ifndef FILEREPLACER_HPP
+#define FILEREPLACER_HPP
 
-int main(int argc, char **argv)
+#include <string>
+
+class FileReplacer
 {
-    if (argc != 4)
-    {
-        std::cerr << "Usage: " << argv[0] << " <filename> <s1> <s2>" << std::endl;
-        return 1;
-    }
+private:
+    std::string filename;
+    std::string s1;
+    std::string s2;
 
-    FileReplacer replacer(argv[1], argv[2], argv[3]);
-    
-    if (!replacer.execute())
-        return 1;
+    std::string replaceInLine(const std::string& line);
 
-    return 0;
-}
+public:
+    FileReplacer(const std::string& filename, const std::string& s1, const std::string& s2);
+    ~FileReplacer();
 
+    bool execute(void);
+};
+
+#endif
