@@ -6,7 +6,7 @@
 /*   By: mesasaki <mesasaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 00:00:00 by mesasaki          #+#    #+#             */
-/*   Updated: 2025/12/19 21:04:56 by mesasaki         ###   ########.fr       */
+/*   Updated: 2025/12/19 21:06:58 by mesasaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void Harl::error(void)
 
 void Harl::complain(std::string level)
 {
-    // 関数ポインタの配列
+    // 関数ポインタの配列(pointers to member functions)
     void (Harl::*functions[])(void) = {
         &Harl::debug,
         &Harl::info,
