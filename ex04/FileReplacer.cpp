@@ -15,7 +15,7 @@
 #include <fstream>
 
 FileReplacer::FileReplacer(const std::string& filename, const std::string& s1, const std::string& s2)
-    : filename(filename), s1(s1), s2(s2)
+    : filename(filename), s1(s1), s2(s2)//引数で初期化
 {
 }
 
@@ -25,8 +25,8 @@ FileReplacer::~FileReplacer()
 
 std::string FileReplacer::replaceInLine(const std::string& line)
 {
-    std::string result = line;
-    size_t pos = 0;
+    std::string result = line;  //元の行をコピー
+    size_t pos = 0;             //検索開始位置
 
     while ((pos = result.find(this->s1, pos)) != std::string::npos)
     {
@@ -40,9 +40,23 @@ std::string FileReplacer::replaceInLine(const std::string& line)
 
 bool FileReplacer::execute(void)
 {
+    // エラーチェック: ファイル名が空
+    if (this->filename.empty())
+    {
+        std::cerr << "Error: Filename is empty" << std::endl;
+        return false;
+    }
+
+    // エラーチェック: s1が空（無限ループ防止）
+    if (this->s1.empty())
+    {
+        std::cerr << "Error: Search string (s1) cannot be empty" << std::endl;
+        return false;
+    }
+
     // ファイルを開く
     std::ifstream infile(this->filename.c_str());
-    if (!infile.is_open())
+    if (!infile.is_open())//存在しないファイルを入力された場合など
     {
         std::cerr << "Error: Cannot open file " << this->filename << std::endl;
         return false;
@@ -64,6 +78,24 @@ bool FileReplacer::execute(void)
     {
         std::string replacedLine = replaceInLine(line);
         outfile << replacedLine << std::endl;
+        
+        // 書き込みエラーチェック（ディスクフル・権限不足などでの失敗を検出
+        if (outfile.fail())
+        {
+            std::cerr << "Error: Failed to write to file " << outfilename << std::endl;
+            infile.close();
+            outfile.close();
+            return false;
+        }
+    }
+
+    // 読み込みエラーチェック（EOFではなく、実際のエラー。ファイル破損など）
+    if (infile.bad())
+    {
+        std::cerr << "Error: Failed to read from file " << this->filename << std::endl;
+        infile.close();
+        outfile.close();
+        return false;
     }
 
     infile.close();
