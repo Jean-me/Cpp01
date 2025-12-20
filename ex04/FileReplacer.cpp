@@ -23,7 +23,7 @@ FileReplacer::~FileReplacer()
 {
 }
 
-std::string FileReplacer::replaceInLine(const std::string& line)
+std::string FileReplacer::replaceInLine(const std::string& line) const
 {
     std::string result = line;  //元の行をコピー
     size_t pos = 0;             //検索開始位置
@@ -38,7 +38,7 @@ std::string FileReplacer::replaceInLine(const std::string& line)
     return result;
 }
 
-bool FileReplacer::execute(void)
+bool FileReplacer::execute(void) const
 {
     // エラーチェック: ファイル名が空
     if (this->filename.empty())
