@@ -6,7 +6,7 @@
 /*   By: mesasaki <mesasaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 19:07:46 by mesasaki          #+#    #+#             */
-/*   Updated: 2025/12/10 19:07:46 by mesasaki         ###   ########.fr       */
+/*   Updated: 2025/12/24 21:44:42 by mesasaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ private:
 
 public:
     // Constructor
-    Zombie(const std::string& name);
+    Zombie(const std::string &name);
 
     // Destructor
     ~Zombie();
@@ -33,7 +33,8 @@ public:
 };
 
 // Function prototypes
-Zombie *newZombie(const std::string& name);
-void randomChump(const std::string& name);
+Zombie *newZombie(const std::string &name);
+void randomChump(const std::string &name);
 
 #endif
+

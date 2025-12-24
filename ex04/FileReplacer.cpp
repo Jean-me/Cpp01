@@ -74,10 +74,14 @@ bool FileReplacer::execute(void) const
 
     // ファイルを1行ずつ読み込んで置換
     std::string line;
+    bool first = true;
     while (std::getline(infile, line))
     {
         std::string replacedLine = replaceInLine(line);
-        outfile << replacedLine << std::endl;
+        if (!first)
+            outfile << std::endl;
+        outfile << replacedLine;
+        first = false;
         
         // 書き込みエラーチェック（ディスクフル・権限不足などでの失敗を検出
         if (outfile.fail())
